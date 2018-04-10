@@ -1,0 +1,14 @@
+{
+
+    "compilerOptions": {
+        "noImplicitAny": true,
+        "lib": [
+            "dom",
+            "es2015"
+          ],
+        "outDir": "dist"
+    },
+    "include": [
+        "src/**/*"
+    ]
+}
