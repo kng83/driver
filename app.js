@@ -24,7 +24,7 @@ app.get("/some", function (req, res) {
     });
 // Reuse database object in request handlers
 app.get("/", function (req, res) {
-    let ansArr=[]
+    let ansArr=[];
     db.collection('nat_driver').find({}).forEach((docs)=>{
         console.log(docs);
         ansArr.push(docs);
