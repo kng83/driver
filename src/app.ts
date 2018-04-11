@@ -1,20 +1,20 @@
 import * as express from 'express'
 import *as bodyParser from 'body-parser';
 import {MongoClient} from "mongodb";
-import {routeHandler} from "./mongoDB/db";
 import {SiemensCtrl} from "./controller/siemensCtrl";
 import setRoutes from "./routes";
 
 const app = express();
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 const url = 'mongodb://localhost:27017';
 const dbName = 'native_db';
 
 let db: any;
 let SCtrl: any;
-let connectionFinished: Promise<any> = new Promise((resolve)=>{
+let connectionFinished: Promise<any> = new Promise((resolve) => {
     MongoClient.connect(url, function (err: any, client: any) {
         if (err) throw err;
         db = client.db(dbName);
@@ -25,7 +25,7 @@ let connectionFinished: Promise<any> = new Promise((resolve)=>{
     });
 });
 
-connectionFinished.then(()=>{
+connectionFinished.then(() => {
     SCtrl = new SiemensCtrl();
     setRoutes(app);
 });

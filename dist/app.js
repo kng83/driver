@@ -8,6 +8,7 @@ var routes_1 = require("./routes");
 var app = express();
 exports.app = app;
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 var url = 'mongodb://localhost:27017';
 var dbName = 'native_db';
 var db;

@@ -3,5 +3,5 @@ import {db} from '../app'
 
 
 export class SiemensCtrl extends Base{
-    collection = db.collection('nat_driver');
+   collection = db.collection('nat_driver');
 }
